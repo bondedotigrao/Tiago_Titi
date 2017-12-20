@@ -1,0 +1,56 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <f:view contentType="text/html">
+        <h:head>
+            <f:facet name="first">
+                <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
+                <title>Cadastro Cliente</title>
+            </f:facet>
+        </h:head>
+
+        <h:body>
+            <h:form>
+
+                <p:layoutUnit position="center" size="300">
+
+                    <p:fieldset>
+                        <p:panelGrid columns="2">
+                            <h:outputText value="Nome"/>
+                            <p:inputText value="#{clienteController.cadCliente.nome}"/>
+
+                            <h:outputText value="CPNJ"/>
+                            <p:inputText value="#{clienteController.cadCliente.cnpj}"/>
+
+                            <h:outputText value="E-mail"/>
+                            <p:inputText value="#{clienteController.cadCliente.email}"/>
+
+                            <h:outputText value="login"/>
+                            <p:inputText value="#{clienteController.cadCliente.login}"/>
+
+                            <h:outputText value="senha"/>
+                            <p:inputText value="#{clienteController.cadCliente.senha}"/>
+
+                            <h:outputText value="#{clienteController.cadCliente.postos}"/>  
+
+
+                        </p:panelGrid >
+                        <p:commandButton value="Cadastrar" action="#{clienteController.inserir()}"
+                                         oncomplete="PF('widDialConfirmCada').show()"/>
+
+
+                    </p:fieldset>
+                </p:layoutUnit> 
+
+
+            </h:form>
+
+        </h:body>
+
+    </f:view>
+</html>
+

@@ -1,0 +1,54 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <f:view contentType="text/html">
+        <h:head>
+            <f:facet name="first">
+                <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
+                <title>Cadastro Usuario</title>
+            </f:facet>
+        </h:head>
+
+        <h:body>
+            <h:form>
+
+
+                <p:fieldset>
+                    <p:panelGrid columns="2">
+                        <h:outputText value="Nome"/>
+                        <p:inputText value="#{usuarioController.cadUsuario.nome}"/>
+
+                        <h:outputText value="CPF"/>
+                        <p:inputText value="#{usuarioController.cadUsuario.cpf}"/>
+
+                        <h:outputText value="Numero do Celular"/>
+                        <p:inputText value="#{usuarioController.cadUsuario.numCelular}"/>
+
+                        <h:outputText value="E-mail"/>
+                        <p:inputText value="#{usuarioController.cadUsuario.email}"/>
+
+                        <h:outputText value="Login"/>
+                        <p:inputText value="#{usuarioController.cadUsuario.login}"/>
+
+                        <h:outputText value="Senha"/>
+                        <p:inputText value="#{usuarioController.cadUsuario.senha}"/>
+
+                    </p:panelGrid>
+                    <p:commandButton value="Cadastrar" oncomplete="PF('widDialConfirmaCad').show()"/>
+                </p:fieldset>
+
+                <p:dialog visible="false" id="dialConfirmaCad" modal="true"
+                          widgetVar="widDialConfirmaCad">
+                    <p:commandButton value="Sim" action="#{usuarioController.cadastrar()}" oncomplete="PF('widDialConfirmaCad').hide()"/>
+                    <p:commandButton value="Não" oncomplete="PF('widDialConfirmaCad').hide()"/>
+                </p:dialog>
+            </h:form>
+        </h:body>
+
+    </f:view>
+</html>
+
