@@ -12,43 +12,35 @@
                 <title>Cadastro Cliente</title>
             </f:facet>
         </h:head>
-
         <h:body>
             <h:form>
+                <p:fieldset>
+                    <p:panelGrid columns="2">
+                        <h:outputText value="Nome"/>
+                        <p:inputText value="#{clienteController.cadCliente.nome}"/>
 
-                <p:layoutUnit position="center" size="300">
+                        <h:outputText value="CNPJ"/>
+                        <p:inputText value="#{clienteController.cadCliente.cnpj}"/>
 
-                    <p:fieldset>
-                        <p:panelGrid columns="2">
-                            <h:outputText value="Nome"/>
-                            <p:inputText value="#{clienteController.cadCliente.nome}"/>
+                        <h:outputText value="E-mail"/>
+                        <p:inputText value="#{clienteController.cadCliente.email}"/>
 
-                            <h:outputText value="CPNJ"/>
-                            <p:inputText value="#{clienteController.cadCliente.cnpj}"/>
+                        <h:outputText value="Login"/>
+                        <p:inputText value="#{clienteController.cadCliente.login}"/>
 
-                            <h:outputText value="E-mail"/>
-                            <p:inputText value="#{clienteController.cadCliente.email}"/>
+                        <h:outputText value="Senha"/>
+                        <p:inputText value="#{clienteController.cadCliente.senha}"/>
 
-                            <h:outputText value="login"/>
-                            <p:inputText value="#{clienteController.cadCliente.login}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="Cadastrar" oncomplete="PF('widDialConfirmaCad').show()"/>
+                </p:fieldset>
 
-                            <h:outputText value="senha"/>
-                            <p:inputText value="#{clienteController.cadCliente.senha}"/>
-
-                            <h:outputText value="#{clienteController.cadCliente.postos}"/>  
-
-
-                        </p:panelGrid >
-                        <p:commandButton value="Cadastrar" action="#{clienteController.inserir()}"
-                                         oncomplete="PF('widDialConfirmCada').show()"/>
-
-
-                    </p:fieldset>
-                </p:layoutUnit> 
-
-
+                <p:dialog visible="false" id="dialConfirmaCad" modal="true"
+                          widgetVar="widDialConfirmaCad">
+                    <p:commandButton value="Sim" action="#{usuarioController.cadastrar()}" oncomplete="PF('widDialConfirmaCad').hide()"/>
+                    <p:commandButton value="Não" oncomplete="PF('widDialConfirmaCad').hide()"/>
+                </p:dialog>
             </h:form>
-
         </h:body>
 
     </f:view>
