@@ -12,10 +12,13 @@
                 <title>Cadastro Cliente</title>
             </f:facet>
         </h:head>
+    
         <h:body>
+            <ui:include src="menuLogar.xhtml"/>
+
             <h:form>
-                <p:fieldset>
-                    <p:panelGrid columns="2">
+                <p:fieldset legend="CADASTRO CLIENTE">
+                    <p:panelGrid  columns="2">
                         <h:outputText value="Nome"/>
                         <p:inputText value="#{clienteController.cadCliente.nome}"/>
 
@@ -33,11 +36,13 @@
 
                     </p:panelGrid>
                     <p:commandButton value="Cadastrar" oncomplete="PF('widDialConfirmaCad').show()"/>
+                    <p:commandButton value="Home" action="index.xhtml"/>
+
                 </p:fieldset>
 
                 <p:dialog visible="false" id="dialConfirmaCad" modal="true"
                           widgetVar="widDialConfirmaCad">
-                    <p:commandButton value="Sim" action="#{usuarioController.cadastrar()}" oncomplete="PF('widDialConfirmaCad').hide()"/>
+                    <p:commandButton value="Sim" action="#{clienteController.inserir}"  oncomplete="PF('widDialConfirmaCad').hide()"/>
                     <p:commandButton value="Não" oncomplete="PF('widDialConfirmaCad').hide()"/>
                 </p:dialog>
             </h:form>

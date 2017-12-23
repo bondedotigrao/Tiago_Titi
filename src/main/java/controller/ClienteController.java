@@ -11,24 +11,26 @@ import model.implementacoes.ClienteHibernate;
 public class ClienteController {
     private  ClienteHibernate instance = null;
     private Cliente cadCliente;
-    private Cliente selectedCliente;
+   
     
     public ClienteController() {
         this.instance = ClienteHibernate.getinstanceClienteH();
         this.cadCliente = new Cliente();
-        this.selectedCliente = new Cliente();
+       
     }
  
-    public void inserir(){
+    public String inserir(){
         instance.criar(this.cadCliente);
+        this.cadCliente = new Cliente();
+        return"index.xhtml";
     }
     
     public void alterar(){
-        instance.alterar(this.selectedCliente);
+        instance.alterar(this.cadCliente);
     }
     
     public void deletar(){
-        instance.deletar(this.selectedCliente);
+        instance.deletar(this.cadCliente);
     }
     
     public Cliente recuperar(int codigo){
