@@ -1,0 +1,110 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:head>
+        <title>Dados do Usuario</title>
+    </h:head>
+    <h:body style="background-color:black">
+        
+                        <h:form id="formMenu">
+            <p:menubar>
+                <p:menuitem value="Voltar" url="apresentaUsuario.xhtml"/>
+                <p:submenu label="Usuario">
+                    <p:menuitem value="Exibir Dados Usuario" url=""/>
+                    <p:menuitem value="Alterar Dados Usuario" url="cadastroUsuario.xhtml"/>
+                </p:submenu>
+            </p:menubar>
+            <p:separator/>
+        </h:form>
+        
+        <h:form>
+
+            <p:fieldset>
+
+                <p:panelGrid columns="2" columnClasses="label, values">
+
+                    <h:outputText value="Nome"/>
+                    <h:outputText value="" />
+
+                    <h:outputText value="CPF"/>
+                    <h:outputText value=""/>
+
+                </p:panelGrid>
+            </p:fieldset>
+        </h:form>
+
+        <h:form>
+            <p:dialog id="dialVisualizaMotorista" visible="false" modal="true" resizable="false" draggable="false"
+                      widgetVar="widDialVisualizaMotorista" >
+                <p:panelGrid columns="2">
+                    <h:outputText value="Código : "/>
+                    <h:outputText value=""/>
+
+                    <h:outputText value="Nome : "/>
+                    <h:outputText value=""/>
+
+                    <h:outputText value="CPF : "/>
+                    <h:outputText value=""/>
+
+                    <h:outputText value="Email : "/>
+                    <h:outputText value=""/>
+
+                </p:panelGrid>
+                <p:fieldset>                   
+                    <p:commandButton value="Visualizar Endereço" oncomplete="PF('widDialVisualizaEnderecoMotorista').show()" 
+                                     update="dialEndereco"/>
+                    <p:commandButton value="Visualizar o Carro" oncomplete="PF('widDialVisualizaCarro').show()"/>
+                    <p:commandButton value="Voltar" oncomplete="PF('widDialVisualizaMotorista').hide()"/>
+
+                </p:fieldset>
+            </p:dialog>
+
+
+            <p:dialog id="dialEndereco" visible="false" modal="true" resizable="false" draggable="false"
+                      widgetVar="widDialVisualizaEnderecoMotorista">
+                <p:panelGrid columns="2">
+                    <h:outputText value="Estado : "/>
+                    <h:outputText value=""/>
+
+                    <h:outputText value="Cidade : "/>
+                    <h:outputText value=""/>
+
+                    <h:outputText value="CEP : "/>
+                    <h:outputText value=""/>
+
+                    <p:commandButton value="Voltar para o motorista"/>
+                </p:panelGrid>
+            </p:dialog>
+
+            <p:dialog id="delMotorista" visible="false" modal="true" resizable="false"
+                      widgetVar="widDialDeletaMotorista">
+                <h:outputText value="Você deseja realmente deletar esser perfil?"/>
+              
+            </p:dialog>
+
+            <p:dialog id="dialVisualizaCarro" visible="false" modal="true" resizable="false"
+                      widgetVar="widDialVisualizaCarro">
+                <p:fieldset>
+                    <p:panelGrid columns="2">
+                        <h:outputText value="Marca"/>
+                        <h:outputText value=""/>
+
+                        <h:outputText value="Modelo"/>
+                        <h:outputText value=""/>
+
+                        <h:outputText value="Placa"/>
+                        <h:outputText value=""/>
+
+                        <p:commandButton value="Voltar para o motorista" oncomplete="PF('widDialVisualizaCarro').hide()"/>
+                    </p:panelGrid>
+                </p:fieldset>
+            </p:dialog>
+
+        </h:form>
+    </h:body>
+</html>
