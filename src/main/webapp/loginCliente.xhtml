@@ -13,7 +13,7 @@
             </f:facet>
         </h:head>
 
-        <h:body style="background-color: black">
+        <h:body>
             
             <ui:include src="menuLogar.xhtml"/>
             
@@ -23,14 +23,14 @@
                 <h:form id="formLogar">
                 
                     <p:outputLabel value="Login* : " title="CLIENTE" />
-              <p:inputText id="txtCpf" binding="#{login}" required="true"
+              <p:inputText id="txtCpf" binding="#{Login}" required="true"
                            maxlength="12" requiredMessage="O CPF precisa ser preenchido!" />
                 <br/>
                 <p:outputLabel value="Senha*: " />
-		<p:password id="txtSenha" binding="#{senha}" required="true"
+		<p:password id="txtSenha" binding="#{Senha}" required="true"
 					maxlength="20" requiredMessage="A senha precisa ser preenchido!" />
                                 <br/>
-                                <p:commandButton value="logar" action="#{clienteController}" />
+                                <p:commandButton value="logar" action="#{loginClienteClontroller.loginCliente(Login.value, Senha.value)}" />
                 
              </h:form>
                     

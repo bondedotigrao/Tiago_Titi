@@ -9,7 +9,7 @@
         <h:head>
             <f:facet name="first">
                 <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
-                <title>Cadastro Cliente</title>
+                <title>Cadastro Cliente Logado</title>
             </f:facet>
         </h:head>
     
@@ -17,7 +17,7 @@
             <ui:include src="menuLogar.xhtml"/>
 
             <h:form>
-                <p:fieldset legend="CADASTRAR POSTO">
+                <p:fieldset legend="CADASTRAR NOVO POSTO">
                     <p:panelGrid  columns="2">
                         <h:outputText value="Nome"/>
                         <p:inputText value="#{clienteController.cadCliente.nome}"/>
@@ -36,6 +36,8 @@
 
                     </p:panelGrid>
                     <p:commandButton value="Cadastrar" oncomplete="PF('widDialConfirmaCad').show()"/>
+                    <p:commandButton value="Voltar" oncomplete="PF('widDialConfirmaCad').show()" action="apresentaCliente.xhtml"/>
+                    
                 </p:fieldset>
 
                 <p:dialog visible="false" id="dialConfirmaCad" modal="true"

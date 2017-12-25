@@ -17,7 +17,7 @@
             <ui:include src="menuLogar.xhtml"/>
 
             <h:form>
-                <p:fieldset legend="ALTERAR POSTO">
+                <p:fieldset legend="ALTERAR DADOS DO POSTO">
                     <p:panelGrid  columns="2">
                         <h:outputText value="Nome"/>
                         <p:inputText value="#{clienteController.cadCliente.nome}"/>
@@ -36,7 +36,7 @@
 
                     </p:panelGrid>
                     <p:commandButton value="Alterar" oncomplete="PF('widDialConfirmaCad').show()"/>
-                    <p:commandButton value="Voltar" oncomplete="PF('widDialConfirmaCad').show()" action="perfilCliente.xhtml"/>
+                    <p:commandButton value="Voltar" action="apresentaCliente.xhtml"/>
                 </p:fieldset>
 
                 <p:dialog visible="false" id="dialConfirmaCad" modal="true"

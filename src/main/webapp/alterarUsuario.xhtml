@@ -9,7 +9,7 @@
         <h:head>
             <f:facet name="first">
                 <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
-                <title>Cadastro Cliente</title>
+                <title>Alterar Usuario</title>
             </f:facet>
         </h:head>
     
@@ -17,25 +17,29 @@
             <ui:include src="menuLogar.xhtml"/>
 
             <h:form>
-                <p:fieldset legend="CADASTRAR POSTO">
+                <p:fieldset legend="ALTERAR DADOS DO USUARIO">
                     <p:panelGrid  columns="2">
                         <h:outputText value="Nome"/>
                         <p:inputText value="#{clienteController.cadCliente.nome}"/>
 
-                        <h:outputText value="CNPJ"/>
+                        <h:outputText value="CPF"/>
                         <p:inputText value="#{clienteController.cadCliente.cnpj}"/>
 
                         <h:outputText value="E-mail"/>
                         <p:inputText value="#{clienteController.cadCliente.email}"/>
 
-                        <h:outputText value="Login"/>
+                        <h:outputText value="Numero Celular"/>
                         <p:inputText value="#{clienteController.cadCliente.login}"/>
 
+                        <h:outputText value="Login"/>
+                        <p:inputText value="#{clienteController.cadCliente.senha}"/>
+                        
                         <h:outputText value="Senha"/>
                         <p:inputText value="#{clienteController.cadCliente.senha}"/>
 
                     </p:panelGrid>
-                    <p:commandButton value="Cadastrar" oncomplete="PF('widDialConfirmaCad').show()"/>
+                    <p:commandButton value="Alterar" oncomplete="PF('widDialConfirmaCad').show()"/>
+                    <p:commandButton value="Voltar" action="perfilUsuario.xhtml"/>
                 </p:fieldset>
 
                 <p:dialog visible="false" id="dialConfirmaCad" modal="true"
