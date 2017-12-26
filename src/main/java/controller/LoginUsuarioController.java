@@ -23,11 +23,11 @@ public class LoginUsuarioController {
     public LoginUsuarioController() {
     }
 
-    public Usuario getClienteLogado() {
+    public Usuario getUsuarioLogado() {
         return usuarioLogado;
     }
 
-    public void setClienteLogado(Usuario clienteLogado) {
+    public void setUsuarioLogado(Usuario clienteLogado) {
         this.usuarioLogado = usuarioLogado;
     }
     

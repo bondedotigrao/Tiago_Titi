@@ -28,15 +28,22 @@
                 <p:panelGrid columns="2" columnClasses="label, values">
 
                     <h:outputText value="Nome"/>
-                    <h:outputText value="" />
+                    <h:outputText value="#{loginUsuarioController.usuarioLogado.nome}" />
 
                     <h:outputText value="CPF"/>
-                    <h:outputText value=""/>
+                    <h:outputText value="#{loginUsuarioController.usuarioLogado.cpf}"/>
 
                 </p:panelGrid>
                 <p:commandButton value="Perfil" action="perfilUsuario.xhtml"/>
-                <p:commandButton icon="fa-trash-o" value="Deletar Cliente" oncomplete=""/>
+                <p:commandButton icon="fa-trash-o" value="Deletar Cliente" oncomplete="PF('widDialConfirmaCad').show()"/>
                 
+                 <p:dialog visible="false" id="dialConfirmaCad" modal="true"
+                           widgetVar="widDialConfirmaCad" header="DELETAR">
+                     <h:outputText value="QUER REALMENTE DELETAR"/>
+                     <p:commandButton value="Sim" action="index.xhtml" oncomplete="PF('widDialConfirmaCad').hide()"
+                                      actionListener="#{usuarioController.deletar(loginUsuarioController.usuarioLogado)}"/>
+                    <p:commandButton value="Não" oncomplete="PF('widDialConfirmaCad').hide()"/>
+                </p:dialog>
 
             </p:fieldset>
         </h:form>

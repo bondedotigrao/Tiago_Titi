@@ -6,7 +6,6 @@ import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
-import model.Cliente;
 import model.Usuario;
 import model.implementacoes.UsuarioHibernate;
 
@@ -34,8 +33,8 @@ public class UsuarioController {
         instance.alterar(this.cadUsuario);
     }
     
-    public void deletar(){
-        instance.deletar(this.cadUsuario);
+    public void deletar(Usuario usuario){
+        instance.deletar(usuario);
     }
     
     public Usuario recuperar(int codigo){
