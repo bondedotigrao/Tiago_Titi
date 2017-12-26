@@ -17,22 +17,22 @@ import model.Cliente;
  */
 @ManagedBean
 @SessionScoped
-public class LoginClienteClontroller {
+public class LoginClienteController {
     
     private Cliente clienteLogado = null;
     
 
-    public LoginClienteClontroller() {
+    public LoginClienteController() {
     }
 
-    public Cliente getCliente() {
+    public Cliente getClienteLogado() {
         return clienteLogado;
     }
 
-    public void setCliente(Cliente cliente) {
-        this.clienteLogado = cliente;
+    public void setClienteLogado(Cliente clienteLogado) {
+        this.clienteLogado = clienteLogado;
     }
-    
+
     public String loginCliente(String login,String senha){
         List<Cliente> clientes = new ClienteController().recuperarTodos();
         
@@ -41,7 +41,7 @@ public class LoginClienteClontroller {
                 if(c.getLogin().equals(senha)){
                     this.clienteLogado = c;
                     FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("usuarioLogado", c);
-                    return "apresentaUsuario.xhtml";
+                    return "perfilCliente.xhtml";
                 }
             }
             
@@ -55,7 +55,7 @@ public class LoginClienteClontroller {
         
         FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
         
-       return "apresentaUsuario.xhtml";
+       return "index.xhtml";
     }
     
 }

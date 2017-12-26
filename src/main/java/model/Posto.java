@@ -2,6 +2,7 @@ package model;
 
 import java.io.Serializable;
 import java.util.List;
+import java.util.Objects;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -33,23 +34,21 @@ public class Posto implements Serializable {
     private double precoGasolina;
     @Column(nullable = false)
     private double precoAlcool;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "posto", fetch = FetchType.EAGER)
-    private List<Frentista> frentistas;
     @ManyToOne
     @JoinColumn(name = "id_proprietario")
     private Cliente cliente;
     
+    @Deprecated
     public Posto(){
         
     }
 
-    public Posto(String endereco, String nome, String distribuidora, double precoGasolina, double precoAlcool, List<Frentista> frentistas, Cliente cliente) {
+    public Posto(String endereco, String nome, String distribuidora, double precoGasolina, double precoAlcool, Cliente cliente) {
         this.endereco = endereco;
         this.nome = nome;
         this.distribuidora = distribuidora;
         this.precoGasolina = precoGasolina;
         this.precoAlcool = precoAlcool;
-        this.frentistas = frentistas;
         this.cliente = cliente;
     }
 
@@ -101,14 +100,6 @@ public class Posto implements Serializable {
         this.precoAlcool = precoAlcool;
     }
 
-    public List<Frentista> getFrentistas() {
-        return frentistas;
-    }
-
-    public void setFrentistas(List<Frentista> frentistas) {
-        this.frentistas = frentistas;
-    }
-
     public Cliente getCliente() {
         return cliente;
     }
@@ -118,13 +109,58 @@ public class Posto implements Serializable {
     }
 
     @Override
-    public String toString() {
-        return "Posto{" + "id_posto=" + id_posto + ", endereco=" + endereco + ", nome=" + nome + ", distribuidora=" + distribuidora + ", precoGasolina=" + precoGasolina + ", precoAlcool=" + precoAlcool + ", frentistas=" + frentistas + ", cliente=" + cliente + '}';
+    public int hashCode() {
+        int hash = 7;
+        hash = 37 * hash + this.id_posto;
+        hash = 37 * hash + Objects.hashCode(this.endereco);
+        hash = 37 * hash + Objects.hashCode(this.nome);
+        hash = 37 * hash + Objects.hashCode(this.distribuidora);
+        hash = 37 * hash + (int) (Double.doubleToLongBits(this.precoGasolina) ^ (Double.doubleToLongBits(this.precoGasolina) >>> 32));
+        hash = 37 * hash + (int) (Double.doubleToLongBits(this.precoAlcool) ^ (Double.doubleToLongBits(this.precoAlcool) >>> 32));
+        hash = 37 * hash + Objects.hashCode(this.cliente);
+        return hash;
     }
-    
-    
 
-    
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Posto other = (Posto) obj;
+        if (this.id_posto != other.id_posto) {
+            return false;
+        }
+        if (Double.doubleToLongBits(this.precoGasolina) != Double.doubleToLongBits(other.precoGasolina)) {
+            return false;
+        }
+        if (Double.doubleToLongBits(this.precoAlcool) != Double.doubleToLongBits(other.precoAlcool)) {
+            return false;
+        }
+        if (!Objects.equals(this.endereco, other.endereco)) {
+            return false;
+        }
+        if (!Objects.equals(this.nome, other.nome)) {
+            return false;
+        }
+        if (!Objects.equals(this.distribuidora, other.distribuidora)) {
+            return false;
+        }
+        if (!Objects.equals(this.cliente, other.cliente)) {
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public String toString() {
+        return "Posto{" + "id_posto=" + id_posto + ", endereco=" + endereco + ", nome=" + nome + ", distribuidora=" + distribuidora + ", precoGasolina=" + precoGasolina + ", precoAlcool=" + precoAlcool + ", cliente=" + cliente + '}';
+    }
 
    
 }

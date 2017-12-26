@@ -10,7 +10,7 @@
         <title>Dados do Motorista</title>
     </h:head>
     <h:body style="background-color:black">
-                <h:form id="formMenu">
+        <h:form id="formMenu">
             <p:menubar>
                 <p:menuitem value="Home" url="index.xhtml"/>
                 <p:submenu label="Usuario">
@@ -20,7 +20,7 @@
             </p:menubar>
             <p:separator/>
         </h:form>
-        
+
         <h:form>
 
             <p:fieldset>
@@ -36,12 +36,12 @@
                 </p:panelGrid>
                 <p:commandButton value="Perfil" action="perfilUsuario.xhtml"/>
                 <p:commandButton icon="fa-trash-o" value="Deletar Cliente" oncomplete="PF('widDialConfirmaCad').show()"/>
-                
-                 <p:dialog visible="false" id="dialConfirmaCad" modal="true"
-                           widgetVar="widDialConfirmaCad" header="DELETAR">
-                     <h:outputText value="QUER REALMENTE DELETAR"/>
-                     <p:commandButton value="Sim" action="index.xhtml" oncomplete="PF('widDialConfirmaCad').hide()"
-                                      actionListener="#{usuarioController.deletar(loginUsuarioController.usuarioLogado)}"/>
+
+                <p:dialog visible="false" id="dialConfirmaCad" modal="true"
+                          widgetVar="widDialConfirmaCad" header="DELETAR">
+                    <h:outputText value="QUER REALMENTE DELETAR"/>
+                    <p:commandButton value="Sim" action="index.xhtml" oncomplete="PF('widDialConfirmaCad').hide()"
+                                     actionListener="#{usuarioController.deletar(loginUsuarioController.usuarioLogado)}"/>
                     <p:commandButton value="Não" oncomplete="PF('widDialConfirmaCad').hide()"/>
                 </p:dialog>
 
@@ -60,13 +60,13 @@
 
                     <h:outputText value="Email : "/>
                     <h:outputText value=""/>
-                    
+
                     <h:outputText value="Numero Celular : "/>
                     <h:outputText value=""/>
-                    
+
                     <h:outputText value="Login : "/>
                     <h:outputText value=""/>
-                    
+
                     <h:outputText value="Senha : "/>
                     <h:outputText value=""/>
 

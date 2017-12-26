@@ -2,7 +2,7 @@ package model.implementacoes;
 
 import java.util.ArrayList;
 import java.util.List;
-import javax.persistence.EntityManager;
+import model.Cliente;
 
 import model.Posto;
 import org.hibernate.Session;
@@ -106,4 +106,15 @@ public class PostoHibernate implements PostoDAO {
         return null;
     }
 
+    public List<Posto> recuperarPorCliente(Cliente cliente){
+        Session session = this.sessions.openSession();
+        
+        List<Posto> postos = new ArrayList();
+        
+        postos = (List) session.createQuery("From Posto Where id_proprietario=" + cliente.getId_cliente()).getResultList();
+        
+        session.close();
+        
+        return postos;
+    }
 }

@@ -10,8 +10,8 @@
         <title>Dados do Usuario</title>
     </h:head>
     <h:body style="background-color:black">
-        
-                        <h:form id="formMenu">
+
+        <h:form id="formMenu">
             <p:menubar>
                 <p:menuitem value="Voltar" url="apresentaUsuario.xhtml"/>
                 <p:submenu label="Usuario">
@@ -21,7 +21,7 @@
             </p:menubar>
             <p:separator/>
         </h:form>
-        
+
         <h:form>
 
             <p:fieldset>
@@ -29,79 +29,39 @@
                 <p:panelGrid columns="2" columnClasses="label, values">
 
                     <h:outputText value="Nome"/>
-                    <h:outputText value="" />
+                    <h:outputText value="#{loginUsuarioController.usuarioLogado.nome}" />
 
                     <h:outputText value="CPF"/>
-                    <h:outputText value=""/>
+                    <h:outputText value="#{loginUsuarioController.usuarioLogado.cpf}"/>
 
                 </p:panelGrid>
+                <p:commandButton value="Informações completas" oncomplete="PF('widDialVisualizaUsuario').show()"/>
             </p:fieldset>
         </h:form>
 
         <h:form>
-            <p:dialog id="dialVisualizaMotorista" visible="false" modal="true" resizable="false" draggable="false"
-                      widgetVar="widDialVisualizaMotorista" >
+            <p:dialog id="dialVisualizaUsuario" visible="false" modal="true" resizable="false" draggable="false"
+                      widgetVar="widDialVisualizaUsuario" >
                 <p:panelGrid columns="2">
                     <h:outputText value="Código : "/>
-                    <h:outputText value=""/>
+                    <h:outputText value="#{loginUsuarioController.usuarioLogado.id_usuario}"/>
 
                     <h:outputText value="Nome : "/>
-                    <h:outputText value=""/>
+                    <h:outputText value="#{loginUsuarioController.usuarioLogado.nome}"/>
 
                     <h:outputText value="CPF : "/>
-                    <h:outputText value=""/>
+                    <h:outputText value="#{loginUsuarioController.usuarioLogado.cpf}"/>
 
                     <h:outputText value="Email : "/>
-                    <h:outputText value=""/>
-
+                    <h:outputText value="#{loginUsuarioController.usuarioLogado.email}"/>
+  
+                    <h:outputText value="Número de celular : "/>
+                    <h:outputText value="#{loginUsuarioController.usuarioLogado.numCelular}"/>
+  
                 </p:panelGrid>
                 <p:fieldset>                   
-                    <p:commandButton value="Visualizar Endereço" oncomplete="PF('widDialVisualizaEnderecoMotorista').show()" 
-                                     update="dialEndereco"/>
-                    <p:commandButton value="Visualizar o Carro" oncomplete="PF('widDialVisualizaCarro').show()"/>
-                    <p:commandButton value="Voltar" oncomplete="PF('widDialVisualizaMotorista').hide()"/>
+                    <p:commandButton value="Voltar" oncomplete="PF('widDialVisualizaUsuario').hide()"/>
 
-                </p:fieldset>
-            </p:dialog>
-
-
-            <p:dialog id="dialEndereco" visible="false" modal="true" resizable="false" draggable="false"
-                      widgetVar="widDialVisualizaEnderecoMotorista">
-                <p:panelGrid columns="2">
-                    <h:outputText value="Estado : "/>
-                    <h:outputText value=""/>
-
-                    <h:outputText value="Cidade : "/>
-                    <h:outputText value=""/>
-
-                    <h:outputText value="CEP : "/>
-                    <h:outputText value=""/>
-
-                    <p:commandButton value="Voltar para o motorista"/>
-                </p:panelGrid>
-            </p:dialog>
-
-            <p:dialog id="delMotorista" visible="false" modal="true" resizable="false"
-                      widgetVar="widDialDeletaMotorista">
-                <h:outputText value="Você deseja realmente deletar esser perfil?"/>
-              
-            </p:dialog>
-
-            <p:dialog id="dialVisualizaCarro" visible="false" modal="true" resizable="false"
-                      widgetVar="widDialVisualizaCarro">
-                <p:fieldset>
-                    <p:panelGrid columns="2">
-                        <h:outputText value="Marca"/>
-                        <h:outputText value=""/>
-
-                        <h:outputText value="Modelo"/>
-                        <h:outputText value=""/>
-
-                        <h:outputText value="Placa"/>
-                        <h:outputText value=""/>
-
-                        <p:commandButton value="Voltar para o motorista" oncomplete="PF('widDialVisualizaCarro').hide()"/>
-                    </p:panelGrid>
                 </p:fieldset>
             </p:dialog>
 

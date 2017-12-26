@@ -14,10 +14,10 @@
         </h:head>
     
         <h:body>
-            <ui:include src="menuLogar.xhtml"/>
+           <ui:include src="apresentaCliente.xhtml"/>
 
             <h:form>
-                <p:fieldset legend="ALTERAR DADOS DO POSTO">
+                <p:fieldset legend="ALTERAR DADOS">
                     <p:panelGrid  columns="2">
                         <h:outputText value="Nome"/>
                         <p:inputText value="#{clienteController.cadCliente.nome}"/>
@@ -41,7 +41,7 @@
 
                 <p:dialog visible="false" id="dialConfirmaCad" modal="true"
                           widgetVar="widDialConfirmaCad">
-                    <p:commandButton value="Sim" action="#{clienteController.inserir}"  oncomplete="PF('widDialConfirmaCad').hide()"/>
+                    <p:commandButton value="Sim" action="#{clienteController.alterar()}"  oncomplete="PF('widDialConfirmaCad').hide()"/>
                     <p:commandButton value="Não" oncomplete="PF('widDialConfirmaCad').hide()"/>
                 </p:dialog>
             </h:form>
