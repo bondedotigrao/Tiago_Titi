@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Altera Cliente</title>
+    </h:head>
+    <h:body>
+         <h:form>
+                <p:fieldset legend="ALTERA POSTO">
+                    <p:panelGrid  columns="2">
+                        <h:outputText value="Nome"/>
+                        <p:inputText value="#{loginClienteController.clienteLogado.nome}"/>
+
+                        <h:outputText value="CNPJ"/>
+                        <p:inputText value="#{loginClienteController.clienteLogado.cnpj}"/>
+
+                        <h:outputText value="E-mail"/>
+                        <p:inputText value="#{loginClienteController.clienteLogado.email}"/>
+
+                        <h:outputText value="Login"/>
+                        <p:inputText value="#{loginClienteController.clienteLogado.login}"/>
+
+                        <h:outputText value="Senha"/>
+                        <p:inputText value="#{loginClienteController.clienteLogado.senha}"/>
+
+                    </p:panelGrid>
+                    <p:commandButton value="Cadastrar" oncomplete="PF('widDialConfirmaCad').show()"/>
+                </p:fieldset>
+
+                <p:dialog visible="false" id="dialConfirmaCad" modal="true"
+                          widgetVar="widDialConfirmaCad">
+                    <p:commandButton value="Sim" action="#{clienteController.alterar()}"  oncomplete="PF('widDialConfirmaCad').hide()"/>
+                    <p:commandButton value="Não" oncomplete="PF('widDialConfirmaCad').hide()"/>
+                </p:dialog>
+            </h:form>
+    </h:body>
+</html>
+

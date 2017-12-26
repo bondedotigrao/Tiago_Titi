@@ -40,7 +40,7 @@ public class LoginClienteController {
             if(c.getLogin().equals(login)){
                 if(c.getLogin().equals(senha)){
                     this.clienteLogado = c;
-                    FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("usuarioLogado", c);
+                    FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("clienteLogado", c);
                     return "perfilCliente.xhtml";
                 }
             }

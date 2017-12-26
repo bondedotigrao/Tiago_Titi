@@ -30,7 +30,8 @@ public class UsuarioController {
     }
     
      public void alterar(){
-        instance.alterar(this.cadUsuario);
+        Usuario usuario = (Usuario) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("usuarioLogado");
+        instance.alterar(usuario);
     }
     
     public void deletar(Usuario usuario){

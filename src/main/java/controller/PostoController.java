@@ -13,7 +13,7 @@ import model.implementacoes.PostoHibernate;
 public class PostoController {
     private PostoHibernate instance;
     private Posto cadPosto;
-    private Posto selectedPosto;
+    private Posto selectedPosto ;
 
     public PostoController() {
         this.instance = PostoHibernate.getinstancePostoP();
@@ -24,10 +24,12 @@ public class PostoController {
         Cliente cliente = (Cliente) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("clienteLogado");
         this.cadPosto.setCliente(cliente);
         instance.criar(this.cadPosto);
-        
+        this.cadPosto = new Posto();
         return "perfilCliente.xhtml";
     }
-    
+    public void alterar(){
+        this.instance.alterar(this.selectedPosto);
+    }
     public void deletar(Posto posto){
         instance.deletar(posto);
     }
