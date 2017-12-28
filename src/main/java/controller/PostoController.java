@@ -27,8 +27,10 @@ public class PostoController {
         this.cadPosto = new Posto();
         return "perfilCliente.xhtml";
     }
-    public void alterar(){
+    public String alterar(){
         this.instance.alterar(this.selectedPosto);
+        
+        return "loginCliente.xhtml";
     }
     public void deletar(Posto posto){
         instance.deletar(posto);

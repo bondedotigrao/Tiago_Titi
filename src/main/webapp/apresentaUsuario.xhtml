@@ -11,6 +11,9 @@
     </h:head>
     <h:body style="background-color:black">
         <h:form id="formMenu">
+             <c:if test="${loginUsuarioController.usuarioLogado == null}">
+            <script>location.href = "index.xhtml";</script>
+        </c:if>
             <p:menubar>
                 <p:menuitem value="Home" url="index.xhtml"/>
                 <p:submenu label="Usuario">

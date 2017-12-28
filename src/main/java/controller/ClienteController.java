@@ -3,6 +3,7 @@ package controller;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
 import model.Cliente;
 import model.implementacoes.ClienteHibernate;
 
@@ -11,6 +12,7 @@ import model.implementacoes.ClienteHibernate;
 public class ClienteController {
     private  ClienteHibernate instance = null;
     private Cliente cadCliente;
+    private Cliente selectedCliente = (Cliente) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("clienteLogado");
    
     
     public ClienteController() {
@@ -47,6 +49,14 @@ public class ClienteController {
 
     public void setCadCliente(Cliente cadCliente) {
         this.cadCliente = cadCliente;
+    }
+
+    public Cliente getSelectedCliente() {
+        return selectedCliente;
+    }
+
+    public void setSelectedCliente(Cliente selectedCliente) {
+        this.selectedCliente = selectedCliente;
     }
     
     

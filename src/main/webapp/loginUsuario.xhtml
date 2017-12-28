@@ -3,7 +3,8 @@
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:p="http://primefaces.org/ui">
+      xmlns:p="http://primefaces.org/ui" 
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
 
     <f:view contentType="text/html">
         <h:head>
@@ -14,24 +15,24 @@
         </h:head>
 
         <h:body>
-           
+
             <ui:include src="menuLogar.xhtml"/>
-            
-            
+
+
             <p:dialog visible="true" header="LOGIN USUARIO">
-            <h:form id="formLogar">
-              <p:outputLabel value="Login* : " />
-              <p:inputText id="txtCpf" binding="#{login}" required="true"
-                           maxlength="12" requiredMessage="O CPF precisa ser preenchido!" />
-                <br/>
-                <p:outputLabel value="Senha*: " />
-		<p:password id="txtSenha" binding="#{senha}" required="true"
-					maxlength="20" requiredMessage="A senha precisa ser preenchido!" />
-                                <br/>
-                                <p:commandButton value="logar" action="#{loginUsuarioController.loginUsuario(login.value, senha.value)}" />
-             </h:form>
+                <h:form id="formLogar">
+                    <p:outputLabel value="Login* : " />
+                    <p:inputText id="txtCpf" binding="#{login}" required="true"
+                                 maxlength="12" requiredMessage="O CPF precisa ser preenchido!" />
+                    <br/>
+                    <p:outputLabel value="Senha*: " />
+                    <p:password id="txtSenha" binding="#{senha}" required="true"
+                                maxlength="20" requiredMessage="A senha precisa ser preenchido!" />
+                    <br/>
+                    <p:commandButton value="logar" action="#{loginUsuarioController.loginUsuario(login.value, senha.value)}" />
+                </h:form>
             </p:dialog>
-           
+
         </h:body>
     </f:view>
 </html>
